@@ -36,7 +36,7 @@ class DataHelper:
 
 
 class UserData:
-    name = 'Павел'
-    email = 'pavel_bazhenov_123@ya.ru'
-    password = '1q2w3e4r'
-    incorrect_password = '1qaz'
+    name: str = 'Павел'
+    email: str = 'pavel_bazhenov_123@ya.ru'
+    password: str = '1q2w3e4r'
+    incorrect_password: str = '1qaz'

@@ -25,3 +25,4 @@ class TestChooseSauces:
 
         element = wait.until(EC.visibility_of_element_located(home_locators.current_section))
         assert element.is_displayed()
+        assert element.text == "Соусы"

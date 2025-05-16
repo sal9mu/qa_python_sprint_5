@@ -4,7 +4,7 @@ from selenium import webdriver
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from ..test_data.test_urls import url
-from ..data import UserData
+from ..test_data.data import UserData
 from ..locators.all_locator import (
     HomePageLocators,
     LoginPageLocators,
