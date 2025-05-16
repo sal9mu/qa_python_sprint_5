@@ -3,23 +3,25 @@ from selenium.webdriver.common.by import By
 from selenium import webdriver
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
+from ..test_data.test_urls import url
 from ..locators.all_locator import (
     HomePageLocators,
 )
 home_locators = HomePageLocators()
+url = url()
 
 
-class TestRegistration:
+class TestChooseSauces:
     def test_choose_sauces(self, create_driver):
         driver = create_driver
         wait = WebDriverWait(driver, timeout=10)
 
         # Переход на страницу
-        driver.get("https://stellarburgers.nomoreparties.site/")
+        driver.get(url.current_url)
 
         # Переход к разделу с соусами
-        sauces_section = wait.until(EC.element_to_be_clickable(home_locators.scroll_to_sauces))
+        sauces_section = wait.until(EC.element_to_be_clickable(home_locators.choose_sauces_section))
         sauces_section.click()
 
-        element = wait.until(EC.visibility_of_element_located(home_locators.scroll_to_sauces))
+        element = wait.until(EC.visibility_of_element_located(home_locators.current_section))
         assert element.is_displayed()

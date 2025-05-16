@@ -3,21 +3,23 @@ from selenium.webdriver.common.by import By
 from selenium import webdriver
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
+from ..test_data.test_urls import url
 from ..locators.all_locator import (
     HomePageLocators,
     LoginPageLocators
 )
 home_locators = HomePageLocators()
 login_page = LoginPageLocators()
+url = url()
 
 
-class TestRegistration:
+class TestClickLabel:
     def test_click_on_page_label(self, create_driver):
         driver = create_driver
         wait = WebDriverWait(driver, timeout=10)
 
         # Переход на страницу
-        driver.get("https://stellarburgers.nomoreparties.site/")
+        driver.get(url.current_url)
 
         # Переход на страницу Входа
         login_account_button = wait.until(EC.element_to_be_clickable(home_locators.login_account_button))

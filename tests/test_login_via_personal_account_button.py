@@ -3,25 +3,26 @@ from selenium.webdriver.common.by import By
 from selenium import webdriver
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
+from ..test_data.test_urls import url
 from ..data import UserData
 from ..locators.all_locator import (
     HomePageLocators,
     LoginPageLocators
 )
-
+url = url()
 login_page = LoginPageLocators()
 home_locators = HomePageLocators()
 
 email = UserData.email
 password = UserData.password
 
-class TestRegistration:
+class TestLogin:
     def test_login(self, create_driver):
         driver = create_driver
         wait = WebDriverWait(driver, timeout=10)
 
         # Переход на сайт
-        driver.get("https://stellarburgers.nomoreparties.site/")
+        driver.get(url.current_url)
 
         # Переход на страницу авторизации
         login_account_button = wait.until(EC.element_to_be_clickable(home_locators.personal_account_button))
